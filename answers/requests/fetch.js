@@ -4,42 +4,42 @@ const postBtn = document.getElementById("post-btn");
 const getData = () => {
   fetch("https://reqres.in/api/users?page=2")
     .then(
-      (response) => {
+      response => {
         if (response.ok) {
           return response.json();
         }
         throw new Error("Request failed!");
       },
-      (networkError) => {
+      networkError => {
         console.log(networkError.message);
       }
     )
-    .then((jsonResponse) => {
+    .then(jsonResponse => {
       console.log(jsonResponse);
       return jsonResponse;
     });
 };
 
 const sendData = () => {
-  fetch("https://reqres.in/api/users", {
+  fetch("https://reqres.in/api/register", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify({ name: "morpheus", job: "leader" }),
+    body: JSON.stringify({ email: "eve.holt@reqres.in", password: "pistol" }),
   })
     .then(
-      (response) => {
+      response => {
         if (response.ok) {
           return response.json();
         }
         throw new Error("Request failed!");
       },
-      (networkError) => {
+      networkError => {
         console.log(networkError.message);
       }
     )
-    .then((jsonResponse) => {
+    .then(jsonResponse => {
       console.log(jsonResponse);
       return jsonResponse;
     });
